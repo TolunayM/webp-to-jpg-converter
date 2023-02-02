@@ -7,7 +7,6 @@
     <list default="true" id="289db4cf-e63e-487b-9657-b556b066bef4" name="Changes" comment="new file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserInput.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserInput.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserInput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675363465885</updated>
       <workItem from="1675363466959" duration="2446000" />
-      <workItem from="1675365931171" duration="6731000" />
+      <workItem from="1675365931171" duration="7431000" />
     </task>
     <task id="LOCAL-00001" summary="new file">
       <created>1675371033981</created>
