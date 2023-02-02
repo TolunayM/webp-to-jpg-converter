@@ -19,12 +19,13 @@ public class UserInput extends JFrame {
     private JTextField pathField;
     private JButton convertButton;
     private JPanel panelMain;
+    private JButton chooseFileButton;
     public String imgPath;
     public UserInput(){
         convertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                imgPath = pathField.getText();
+                //imgPath = pathField.getText();
 
                 try {
                     BufferedImage image = ImageIO.read(new File(imgPath));
@@ -38,7 +39,7 @@ public class UserInput extends JFrame {
                     writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
                     writeParam.setCompressionType(writeParam.getCompressionTypes()[WebPWriteParam.LOSSLESS_COMPRESSION]);
 
-                    FileImageOutputStream imgOutput = new FileImageOutputStream(new File("C:\\%USERPROFILE%\\Desktop\\output2.jpg"));
+                    FileImageOutputStream imgOutput = new FileImageOutputStream(new File("C:\\Users\\Tolunay\\Desktop\\output2.jpg"));
                     // Configure the output on the ImageWriter
                     writer.setOutput(imgOutput);
 
@@ -47,11 +48,34 @@ public class UserInput extends JFrame {
                     writer.write(null, new IIOImage(image, null, null), writeParam);
                     // We need to close output stream otherwise image not be released properly until closing program
                     imgOutput.close();
+
+
                 } catch (IOException a) {
                     a.printStackTrace();
                 }
             }
 
+        });
+        chooseFileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==chooseFileButton) {
+
+                    JFileChooser fileChooser = new JFileChooser();
+
+                    fileChooser.setCurrentDirectory(new File("C:\\Users\\Tolunay\\Desktop\\Hmm")); //sets current directory
+
+                    int response = fileChooser.showOpenDialog(null); //select file to open
+                    //int response = fileChooser.showSaveDialog(null); //select file to save
+
+                    if(response == JFileChooser.APPROVE_OPTION) {
+                        imgPath = fileChooser.getSelectedFile().getAbsolutePath();
+                        pathField.setText(imgPath);
+                        System.out.println(imgPath);
+                    }
+                }
+
+            }
         });
     }
 
@@ -59,7 +83,8 @@ public class UserInput extends JFrame {
         UserInput ui = new UserInput();
         ui.setContentPane(ui.panelMain);
         ui.setTitle("Convert WEBP To JPG");
-        ui.setSize(500,300);
+        ui.setSize(300,150);
+
         ui.setVisible(true);
         ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
