@@ -20,14 +20,14 @@ public class UserInput extends JFrame {
     private JButton convertButton;
     private JPanel panelMain;
     private JButton chooseFileButton;
-    public String imgPath;
+    private String imgPath;
     private String userProfile = System.getenv("USERPROFILE");
 
     public String getImgName(String imgPath){
         this.imgPath = imgPath;
 
         String absName = imgPath.toLowerCase();
-        String[] nameArr = absName.split("\\\\|.webp",50);
+        String[] nameArr = absName.split("\\\\|.webp",50); // 50 :O who knows...
         return nameArr[nameArr.length - 2] + ".jpg";
     }
     public UserInput(){
@@ -48,7 +48,7 @@ public class UserInput extends JFrame {
                     writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
                     writeParam.setCompressionType(writeParam.getCompressionTypes()[WebPWriteParam.LOSSLESS_COMPRESSION]);
                     FileImageOutputStream imgOutput = new FileImageOutputStream(new File(userProfile + "\\Desktop\\"+ getImgName(imgPath)));
-                    
+
 
                     // Configure the output on the ImageWriter
                     writer.setOutput(imgOutput);
@@ -70,14 +70,12 @@ public class UserInput extends JFrame {
         chooseFileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(e.getSource()==chooseFileButton) {
+                if(e.getSource() == chooseFileButton) {
 
                     JFileChooser fileChooser = new JFileChooser();
-
                     fileChooser.setCurrentDirectory(new File(userProfile + "\\Desktop\\Hmm")); //sets current directory
 
                     int response = fileChooser.showOpenDialog(null); //select file to open
-                    //int response = fileChooser.showSaveDialog(null); //select file to save
 
                     if(response == JFileChooser.APPROVE_OPTION) {
                         imgPath = fileChooser.getSelectedFile().getAbsolutePath();
@@ -94,7 +92,7 @@ public class UserInput extends JFrame {
         UserInput ui = new UserInput();
         ui.setContentPane(ui.panelMain);
         ui.setTitle("Convert WEBP To JPG");
-        ui.setSize(300,150);
+        ui.setSize(450,250);
 
         ui.setVisible(true);
         ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
