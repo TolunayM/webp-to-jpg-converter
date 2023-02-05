@@ -22,11 +22,18 @@ public class UserInput extends JFrame {
     private JButton chooseFileButton;
     public String imgPath;
     private String userProfile = System.getenv("USERPROFILE");
+
+    public String getImgName(String imgPath){
+        this.imgPath = imgPath;
+
+        String absName = imgPath.toLowerCase();
+        String[] nameArr = absName.split("\\\\|.webp",50);
+        return nameArr[nameArr.length - 2] + ".jpg";
+    }
     public UserInput(){
         convertButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //imgPath = pathField.getText();
 
                 try {
                     BufferedImage image = ImageIO.read(new File(imgPath));
@@ -35,16 +42,21 @@ public class UserInput extends JFrame {
                     ImageWriter writer = ImageIO.getImageWritersByMIMEType("image/webp").next();
 
 
+
                     // Configure encoding parameters
                     WebPWriteParam writeParam = new WebPWriteParam(writer.getLocale());
                     writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
                     writeParam.setCompressionType(writeParam.getCompressionTypes()[WebPWriteParam.LOSSLESS_COMPRESSION]);
+                    FileImageOutputStream imgOutput = new FileImageOutputStream(new File(userProfile + "\\Desktop\\"+ getImgName(imgPath)));
+                    
 
-                    FileImageOutputStream imgOutput = new FileImageOutputStream(new File(userProfile + "\\Desktop\\output2.jpg"));
                     // Configure the output on the ImageWriter
                     writer.setOutput(imgOutput);
+
                     // Encode
                     writer.write(null, new IIOImage(image, null, null), writeParam);
+
+
                     // We need to close output stream otherwise image not be released properly until closing program
                     imgOutput.close();
 
