@@ -21,6 +21,7 @@ public class UserInput extends JFrame {
     private JPanel panelMain;
     private JButton chooseFileButton;
     public String imgPath;
+    private String userProfile = System.getenv("USERPROFILE");
     public UserInput(){
         convertButton.addActionListener(new ActionListener() {
             @Override
@@ -39,11 +40,9 @@ public class UserInput extends JFrame {
                     writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
                     writeParam.setCompressionType(writeParam.getCompressionTypes()[WebPWriteParam.LOSSLESS_COMPRESSION]);
 
-                    FileImageOutputStream imgOutput = new FileImageOutputStream(new File("C:\\Users\\Tolunay\\Desktop\\output2.jpg"));
+                    FileImageOutputStream imgOutput = new FileImageOutputStream(new File(userProfile + "\\Desktop\\output2.jpg"));
                     // Configure the output on the ImageWriter
                     writer.setOutput(imgOutput);
-
-
                     // Encode
                     writer.write(null, new IIOImage(image, null, null), writeParam);
                     // We need to close output stream otherwise image not be released properly until closing program
@@ -63,7 +62,7 @@ public class UserInput extends JFrame {
 
                     JFileChooser fileChooser = new JFileChooser();
 
-                    fileChooser.setCurrentDirectory(new File("C:\\Users\\Tolunay\\Desktop\\Hmm")); //sets current directory
+                    fileChooser.setCurrentDirectory(new File(userProfile + "\\Desktop\\Hmm")); //sets current directory
 
                     int response = fileChooser.showOpenDialog(null); //select file to open
                     //int response = fileChooser.showSaveDialog(null); //select file to save
