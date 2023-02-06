@@ -8,6 +8,10 @@ import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.swing.*;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.multi.MultiLookAndFeel;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+import javax.swing.plaf.synth.SynthLookAndFeel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
@@ -73,10 +77,12 @@ public class UserInput extends JFrame {
                 if(e.getSource() == chooseFileButton) {
 
                     JFileChooser fileChooser = new JFileChooser();
-                    fileChooser.setCurrentDirectory(new File(userProfile + "\\Desktop\\Hmm")); //sets current directory
+                    fileChooser.setCurrentDirectory(new File(userProfile + "\\Desktop")); //sets current directory
 
                     int response = fileChooser.showOpenDialog(null); //select file to open
 
+                    //TODO FIX FOR MULTIPLE FILE SELECTION
+                    fileChooser.setMultiSelectionEnabled(true);
                     if(response == JFileChooser.APPROVE_OPTION) {
                         imgPath = fileChooser.getSelectedFile().getAbsolutePath();
                         pathField.setText(imgPath);
@@ -93,7 +99,6 @@ public class UserInput extends JFrame {
         ui.setContentPane(ui.panelMain);
         ui.setTitle("Convert WEBP To JPG");
         ui.setSize(450,250);
-
         ui.setVisible(true);
         ui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

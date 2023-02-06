@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="JavaImageConverter" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="289db4cf-e63e-487b-9657-b556b066bef4" name="Changes" comment="new file">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/JavaImageConverter.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserInput.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserInput.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/UserInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/UserInput.java" afterDir="false" />
     </list>
@@ -46,10 +53,14 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "last.edited.regexp": "",
+    "last_opened_file_path": "C:/Users/Tolunay/Desktop/Cava/Java102",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.17041801",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
@@ -104,7 +115,10 @@
       <workItem from="1675363466959" duration="2446000" />
       <workItem from="1675365931171" duration="7431000" />
       <workItem from="1675516022235" duration="745000" />
-      <workItem from="1675633697356" duration="4115000" />
+      <workItem from="1675633697356" duration="4730000" />
+      <workItem from="1675639652893" duration="832000" />
+      <workItem from="1675682342851" duration="82000" />
+      <workItem from="1675714734949" duration="3262000" />
     </task>
     <task id="LOCAL-00001" summary="new file">
       <created>1675371033981</created>
